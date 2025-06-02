@@ -183,4 +183,46 @@ public void testHorizontalCorridor() {
     assertEquals(6, actual);
 }
 
+@Test
+public void testBottomCornerStart() {
+    int[][] island = {
+        {1,1,1},
+        {1,1,1},
+        {1,1,0}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(9, actual);
+}
+
+@Test
+public void testMixedUnreachableFields() {
+    int[][] island = {
+        {0,1,1,2},
+        {2,3,1,3},
+        {1,1,1,1}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(8, actual);
+}
+
+@Test
+public void testOneTileIsland() {
+    int[][] island = {
+        {0}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(1, actual);
+}
+@Test
+public void testDiagonalBlockNoAccess() {
+    int[][] island = {
+        {1,2,1},
+        {2,0,2},
+        {1,2,1}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(1, actual);
+}
+
+
 }
