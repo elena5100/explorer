@@ -32,6 +32,12 @@ public class ExplorerSearch {
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
-        return -1;
+    
+    public static int reachableArea(int[][]locationsOnTheIsland ) {
+        int[] start = findExplorer(locationsOnTheIsland);
+        boolean[][] visited = new boolean[locationsOnTheIsland.length][locationsOnTheIsland[0].length];
+        return countReachable(locationsOnTheIsland, start, visited);
+    
+         
     }
 }
