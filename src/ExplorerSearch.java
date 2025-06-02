@@ -37,7 +37,30 @@ public class ExplorerSearch {
         int[] start = findExplorer(locationsOnTheIsland);
         boolean[][] visited = new boolean[locationsOnTheIsland.length][locationsOnTheIsland[0].length];
         return countReachable(locationsOnTheIsland, start, visited);
+    }
+
+    public static boolean dfs(int[][] locationsOnTheIsland, int[] current, boolean[][] visited) {
+        int row = current[0];
+        int col = current[1];
     
-         
+        if (locationsOnTheIsland[row][col] == 9) 
+        
+        return true;
+    
+        if (visited[row][col]) 
+        
+        return false;
+    
+        visited[row][col] = true;
+    
+        // try all valid moves
+        List<int[]> moves = possibleMoves(locationsOnTheIsland, current);
+        for (int[] next : moves) {
+            if (dfs(locationsOnTheIsland, next, visited)) {
+                return true;
+            }
+        }
+        return false; 
+    
     }
 }
