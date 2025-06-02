@@ -62,7 +62,7 @@ public class ExplorerSearchTest {
         assertEquals(4, actual);
     }
 
-    
+
 
     @Test
     public void testSurroundedByWalls() {
@@ -130,4 +130,57 @@ public void testExplorerOnEdge() {
         int actual = ExplorerSearch.reachableArea(island);
         assertEquals(9, actual);
     }
+
+    @Test
+public void testSurroundedByWater() {
+    int[][] island = {
+        {2,2,2},
+        {2,0,2},
+        {2,2,2}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(1, actual);
+}
+
+@Test
+public void testWindingPath() {
+    int[][] island = {
+        {0,2,2,2},
+        {1,1,1,2},
+        {2,2,1,2},
+        {2,2,1,1}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(7, actual);
+}
+
+@Test
+public void testNoMoveOnlyMountains() {
+    int[][] island = {
+        {3,3,3},
+        {3,0,3},
+        {3,3,3}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(1, actual);
+}
+@Test
+public void testPlusShape() {
+    int[][] island = {
+        {2,1,2},
+        {1,0,1},
+        {2,1,2}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(5, actual);
+}
+@Test
+public void testHorizontalCorridor() {
+    int[][] island = {
+        {0,1,1,1,1,1}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(6, actual);
+}
+
 }
