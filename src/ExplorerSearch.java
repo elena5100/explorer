@@ -60,6 +60,17 @@ public class ExplorerSearch {
 
     return count;
 
+}
+    public static int[] findExplorer(int[][] island) {
+        for (int r = 0; r < island.length; r++) {
+            for (int c = 0; c < island[0].length; c++) {
+                if (island[r][c] == 0) {
+                    return new int[]{r, c};
+                }
+            }
+        }
+        throw new IllegalArgumentException("Explorer not found");
+    }
 
     }
-}
+
