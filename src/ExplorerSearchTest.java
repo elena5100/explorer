@@ -223,6 +223,35 @@ public void testDiagonalBlockNoAccess() {
     int actual = ExplorerSearch.reachableArea(island);
     assertEquals(1, actual);
 }
+@Test
+public void testOneWayOut() {
+    int[][] island = {
+        {3,3,3,3},
+        {3,0,1,3},
+        {3,3,3,3}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(2, actual); 
+}
 
+@Test
+public void testLoopPath() {
+    int[][] island = {
+        {0,1,1},
+        {1,3,1},
+        {1,1,1}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(8, actual); 
+}
+@Test
+public void testTrappedNextToField() {
+    int[][] island = {
+        {0,3},
+        {3,1}
+    };
+    int actual = ExplorerSearch.reachableArea(island);
+    assertEquals(1, actual);
+}
 
 }
