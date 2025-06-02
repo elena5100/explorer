@@ -71,6 +71,22 @@ public class ExplorerSearch {
         }
         throw new IllegalArgumentException("Explorer not found");
     }
+    public static List<int[]> getMoves(int[][] island, int r, int c) {
+        List<int[]> moves = new ArrayList<>();
 
+        // up
+        if (r - 1 >= 0 && island[r - 1][c] == 1) moves.add(new int[]{r - 1, c});
+
+        // down
+        if (r + 1 < island.length && island[r + 1][c] == 1) moves.add(new int[]{r + 1, c});
+
+        // left
+        if (c - 1 >= 0 && island[r][c - 1] == 1) moves.add(new int[]{r, c - 1});
+
+        // right
+        if (c + 1 < island[0].length && island[r][c + 1] == 1) moves.add(new int[]{r, c + 1});
+
+        return moves;
     }
-
+    }
+    
